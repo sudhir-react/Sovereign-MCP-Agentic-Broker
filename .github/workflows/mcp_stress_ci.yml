@@ -3,9 +3,9 @@ name: Autonomous MCP Core Concurrency Load Testing Pipeline
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   pull_request:
-    branches: [main]
+    branches: [ main ]
 
 jobs:
   run-saturation-stress-drill:
@@ -17,30 +17,11 @@ jobs:
       - name: Mount Pristine Enterprise Python Container Environment
         uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
-          cache: "pip"
-
-      - name: Initialize Automated Schema Verification Log
-        run: |
-          python -c "
-          import sqlite3
-          conn = sqlite3.connect('medical_registry_production.db')
-          cursor = conn.cursor()
-          cursor.execute('PRAGMA journal_mode=WAL;')
-          cursor.execute('''
-              CREATE TABLE IF NOT EXISTS async_router_telemetry (
-                  id INTEGER PRIMARY KEY AUTOINCREMENT,
-                  source TEXT NOT NULL,
-                  latency REAL NOT NULL,
-                  shield_status INTEGER NOT NULL,
-                  threads INTEGER NOT NULL,
-                  recorded_at DATETIME DEFAULT CURRENT_TIMESTAMP
-              );
-          ''')
-          conn.commit()
-          conn.close()
-          print('🔒 Cloud Transaction Database Architecture Pre-Instantiated Safely.')
-          "
+          python-version: '3.12'
 
       - name: Execute 50-Agent High-Density Saturation Stress Drill
-        run: python test_concurrency_surge.py
+        # 🔑 THE SYSTEM FIX: Setting the Python Path context explicitly so the cloud runner maps local modules cleanly
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          python test_concurrency_surge.py
