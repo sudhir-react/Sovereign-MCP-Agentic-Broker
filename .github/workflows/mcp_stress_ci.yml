@@ -1,11 +1,11 @@
-# 🌐 SOVEREIGN HIGH-VELOCITY MCP CONCURRENCY DEVOPS PIPELINE
+# 🌐 SOVEREIGN HIGH-VELOCITY MCP CONCURRENCY & LOGGING DEVOPS PIPELINE
 name: Autonomous MCP Core Concurrency Load Testing Pipeline
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   run-saturation-stress-drill:
@@ -17,11 +17,17 @@ jobs:
       - name: Mount Pristine Enterprise Python Container Environment
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
 
       - name: Execute 50-Agent High-Density Saturation Stress Drill
-        # 🔑 THE SYSTEM FIX: Setting the Python Path context explicitly so the cloud runner maps local modules cleanly
         env:
           PYTHONPATH: ${{ github.workspace }}
         run: |
           python test_concurrency_surge.py
+
+      - name: Run Automated MCP Telemetry Logger Engine
+        # 🔑 THE SYSTEM UPGRADE: Dynamically triggering the persistent log flush inside the cloud container sandbox
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          python mcp_telemetry_logger.py
