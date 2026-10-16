@@ -5,7 +5,7 @@ Welcome to the **Sovereign Model Context Protocol (MCP) Agentic Ingress Broker**
 ## Quick Setup
 
 ```bash
-git clone https://github.com
+git clone https://github.com/sudhir-react/Sovereign-MCP-Agentic-Broker
 cd Sovereign-MCP-Agentic-Broker
 python test_concurrency_surge.py
 python test_logger_regression.py
