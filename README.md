@@ -2,8 +2,8 @@
 
 Welcome to the **Sovereign Model Context Protocol (MCP) Agentic Ingress Broker** engineered by **Sudhir Kumar Mishra**. This microservice acts as an architectural context bridge for Autonomous AI Agent pipelines using stateless JSON-RPC 2.0 validation over high-speed Stdio transport layers.
 
-🌐 **Live Workbench Link:** https://github.io
-📚 **Architectural Blog:** https://github.io
+🌐 **Live Workbench Link:** https://sudhir-react.github.io/TechRead-Ingress/
+📚 **Architectural Blog:** https://sudhir-react.github.io/TechTelemetry-Hub/
 
 ---
 
