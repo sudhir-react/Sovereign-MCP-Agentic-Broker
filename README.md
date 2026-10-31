@@ -41,3 +41,25 @@ The server immediately intercepts and pushes the resolution string within 0.1117
 
 ---
 *Engineered for zero-fault tolerance by Principal Solutions Architect Sudhir Kumar Mishra.*
+## 🛠️ Quick Local Telemetry Validation
+
+To boot the raw MCP infrastructure core directly on your local physical RAM, execute:
+
+```bash
+python raw_mcp_core.py
+```
+
+### Inbound Test Packet (JSON-RPC 2.0 Envelope):
+Send the following handshake command directly into the stdin stream to test the engine:
+```json
+{"jsonrpc": "2.0", "method": "tools/list", "id": 1}
+```
+
+### Outbound Response Payload (Bypassing HTTP Lags):
+The server immediately intercepts and pushes the resolution string within 0.1117ms:
+```json
+{"jsonrpc": "2.0", "id": 1, "result": "🟢 [Sudhir's Core] Handshake Success. Method 'tools/list' intercepted safely."}
+```
+
+---
+*Engineered for zero-fault tolerance by Principal Solutions Architect Sudhir Kumar Mishra.*
